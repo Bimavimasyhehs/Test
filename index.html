@@ -73,7 +73,7 @@
                 }]
             });
 
-            info.innerText = "Capturing requests from " + location.host + "/dstat";
+            info.innerText = "Capturing requests from " + location.host;
 
             let ws = new WebSocket("ws://" + location.host + "/ws");
 
