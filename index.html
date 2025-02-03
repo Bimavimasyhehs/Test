@@ -3,95 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L7 DSTAT</title>
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5"></script>
+    <title>HERE</title>
     <style>
         body {
-            background-color: #000000; /* Set background color for the entire page */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+            background-color: #121212; /* Latar belakang gelap */
+            color: white; /* Warna teks putih */
         }
     </style>
 </head>
 <body>
-    <div id="chart" style="width: 80vw; height: 60vh; margin: 20vh auto;"></div>
-
-    <script>
-        const chart = echarts.init(document.getElementById('chart'));
-
-        const option = {
-            title: {
-                text: 'L7 DSTAT',
-                textStyle: {
-                    color: '#ffffff', 
-                },
-            },
-            legend: {
-                data: ['Requests per Second'],
-                textStyle: {
-                    color: '#ffffff', 
-                },
-            },
-            xAxis: {
-                type: 'category',
-                data: [],
-                axisLine: {
-                    lineStyle: {
-                        color: '#ffffff', 
-                    },
-                },
-                axisLabel: {
-                    color: '#ffffff', 
-                },
-            },
-            yAxis: {
-                type: 'value',
-                axisLine: {
-                    lineStyle: {
-                        color: '#ffffff', 
-                    },
-                },
-                axisLabel: {
-                    color: '#ffffff',
-                },
-            },
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'cross',
-                },
-            },
-            series: [{
-                name: 'Requests per Second',
-                type: 'line',
-                smooth: true,
-                data: [],
-                maxDataPoints: 30,
-                itemStyle: {
-                    color: '#91cc75',
-                },
-            }],
-        };
-
-        chart.setOption(option);
-
-        setInterval(() => {
-            fetch('/api/totalReqCount')
-                .then(response => response.json())
-                .then(data => {
-                    const now = new Date();
-                    const time = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
-                    
-                    option.xAxis.data.push(time);
-                    option.series[0].data.push(data.totalReqCount);
-
-                    if (option.xAxis.data.length > option.series[0].maxDataPoints) {
-                        option.xAxis.data.shift();
-                        option.series[0].data.shift();
-                    }
-
-                    chart.setOption(option, true);
-                })
-                .catch(error => console.error('Error fetching data:', error));
-        }, 1000);
-    </script>
+    <table height="100%" width="100%">
+        <tr>
+            <td>
+                <b><i>
+                	<img src="https://j.top4top.io/p_3220tcfzs1.gif" alt="" width="350" height="160"><br>
+                    <font size="5"><font color="red"> BIMZ</font></font>
+                </i></b>
+                <br>
+                <font size="2">[/] DOWN [\]</font>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
