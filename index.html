@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIMZ - Cyber Font</title>
+    <title>B I M Z</title>
 
     <!-- Link Google Font Cyber Style -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
@@ -21,9 +21,28 @@
         .cyber-text {
             font-family: 'Orbitron', sans-serif;
             font-size: 100px;
-            color: #00ffcc;
             text-transform: uppercase;
-            text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ff99, 0 0 40px #00ff66;
+            text-shadow: 0 0 10px red, 0 0 20px blue, 0 0 30px green;
+            animation: rgbGlow 2s infinite alternate;
+        }
+
+        @keyframes rgbGlow {
+            0% {
+                color: red;
+                text-shadow: 0 0 10px red, 0 0 20px darkred, 0 0 30px crimson;
+            }
+            33% {
+                color: blue;
+                text-shadow: 0 0 10px blue, 0 0 20px darkblue, 0 0 30px cyan;
+            }
+            66% {
+                color: green;
+                text-shadow: 0 0 10px green, 0 0 20px darkgreen, 0 0 30px lime;
+            }
+            100% {
+                color: red;
+                text-shadow: 0 0 10px red, 0 0 20px darkred, 0 0 30px crimson;
+            }
         }
     </style>
 </head>
