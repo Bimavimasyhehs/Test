@@ -22,12 +22,35 @@
             height: 100%;
             object-fit: cover;
         }
+        .error-message {
+            color: white;
+            position: absolute;
+            text-align: center;
+            font-size: 18px;
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <video controls autoplay>
+
+    <video id="videoPlayer" controls autoplay>
         <source src="https://l.top4top.io/m_33317l6xt0.mp4" type="video/mp4">
         Browser Anda tidak mendukung tag video.
     </video>
+
+    <div id="errorMessage" class="error-message">
+        Video tidak dapat dimuat. Periksa koneksi atau coba link lain.
+    </div>
+
+    <script>
+        const video = document.getElementById('videoPlayer');
+        const errorMessage = document.getElementById('errorMessage');
+
+        video.onerror = function() {
+            video.style.display = "none";
+            errorMessage.style.display = "block";
+        };
+    </script>
+
 </body>
 </html>
