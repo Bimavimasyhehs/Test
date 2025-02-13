@@ -3,54 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B I M Z</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: black;
-        }
-        video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .error-message {
-            color: white;
-            position: absolute;
-            text-align: center;
-            font-size: 18px;
-            display: none;
-        }
-    </style>
+    <title>Putar Video dari URL</title>
 </head>
 <body>
+    <h2>Video Player</h2>
 
-    <video id="videoPlayer" controls autoplay>
+    <!-- Elemen Video -->
+    <video width="640" height="360" controls>
         <source src="https://l.top4top.io/m_33317l6xt0.mp4" type="video/mp4">
         Browser Anda tidak mendukung tag video.
     </video>
-
-    <div id="errorMessage" class="error-message">
-        Video tidak dapat dimuat. Periksa koneksi atau coba link lain.
-    </div>
-
-    <script>
-        const video = document.getElementById('videoPlayer');
-        const errorMessage = document.getElementById('errorMessage');
-
-        video.onerror = function() {
-            video.style.display = "none";
-            errorMessage.style.display = "block";
-        };
-    </script>
 
 </body>
 </html>
