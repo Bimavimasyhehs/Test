@@ -1,52 +1,145 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B I M Z</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5" name="viewport"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<link href="https://feeldreams.github.io/main-icon.png" rel="icon" type="image/svg+xml"/>
+<link href="https://feeldreams.github.io/main-icon.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/4f3ce16e3e.js"></script>
+<script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+<link href="https://feeldreams.github.io/maukahkamu/style.css" rel="stylesheet" type="text/css"/>
+<script src="https://unpkg.com/scrollreveal"></script>
+<title>Script HTML buat Kamu</title>
 
-    <!-- Link Google Font Cyber Style -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+<!-- Tambahan CSS biar © rayys hilang dan diganti © A B N -->
+<style>
+/* Hilangkan semua pseudo-element bawaan */
+body::after, body::before,
+footer::after, footer::before {
+  content: "" !important;
+  display: none !important;
+  visibility: hidden !important;
+}
 
-    <style>
-        body {
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .cyber-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 100px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px red, 0 0 20px blue, 0 0 30px green;
-            animation: rgbGlow 2s infinite alternate;
-        }
-
-        @keyframes rgbGlow {
-            0% {
-                color: red;
-                text-shadow: 0 0 10px red, 0 0 20px darkred, 0 0 30px crimson;
-            }
-            33% {
-                color: blue;
-                text-shadow: 0 0 10px blue, 0 0 20px darkblue, 0 0 30px cyan;
-            }
-            66% {
-                color: green;
-                text-shadow: 0 0 10px green, 0 0 20px darkgreen, 0 0 30px lime;
-            }
-            100% {
-                color: red;
-                text-shadow: 0 0 10px red, 0 0 20px darkred, 0 0 30px crimson;
-            }
-        }
-    </style>
+/* Tambahkan credit baru */
+footer.custom-credit {
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+  margin-top: 20px;
+}
+</style>
 </head>
+
 <body>
-    <h1 class="cyber-text">D O W N</h1>
+<div class="overlay">
+<div class="loading-message">Heh kowe!<br/>Enteni sek yo..</div>
+</div>
+<audio class="sembunyi" id="linkmp3" src="https://feeldreams.github.io/maukahkamu/seandainya.mp3"></audio>
+
+<section class="first">
+<div class="wp"><img id="imgsatu" src="https://feeldreams.github.io/maukahkamu/wpsatu.jpg"/></div>
+<img class="stiker fade-in" id="first_stiker" src="https://feeldreams.github.io/bunga.gif"/>
+<h1 class="title">Heh Kowe!</h1>
+<p class="flip">Iso ora nek aku jujur saiki?</p>
+<p class="slide-up"><i></i></p>
+</section>
+
+<section>
+<div class="wp"><img id="imgdua" src="https://feeldreams.github.io/maukahkamu/wpdua.jpg"/></div>
+<img class="stiker fade-in" src="https://feeldreams.github.io/pusn.gif"/>
+<h2 class="title"><i>Sakjane..</i></h2>
+<p class="slide-right">Aku seneng karo <b class="lingkar">kowe</b> :(</p>
+</section>
+
+<section>
+<div class="wp"><img id="imgtiga" src="https://feeldreams.github.io/maukahkamu/wptiga.jpg"/></div>
+<p id="teksnimasi">Yen kowe takon kenopo aku seneng karo kowe, iku mergo aku nduwe rasa nyaman dewe sing ora bakal tak temokake nang endi wae.<br/><br/><b><i>Kowe ngerti?</i></b><br/>Ora ana sing iso nggawe aku nyaman selaen kowe..<br/><br/>Lan mergo kenal karo kowe, aku ngrasakke opo iku kenyamanan,</p>
+</section>
+
+<section>
+<div class="wp"><img id="imgempat" src="https://feeldreams.github.io/maukahkamu/wpempat.jpg"/></div>
+<img class="stiker fade-in" src="https://feeldreams.github.io/bunga.gif"/>
+<h2 class="title"><i>Intine,</i></h2>
+<p class="slide-right"><b>Kowe gelem ora<br/>Dadi pacarku? </b></p>
+<div id="Tombol">
+<a id="By" onclick="fungsimau()">Gelem</a>
+<a id="Bn" onclick="fungsigamau()">Ora gelem</a>
+</div>
+</section>
+
+<section id="iniakhir">
+<div class="wp" id="wpakhir"><img src="https://feeldreams.github.io/maukahkamu/wplima.jpg"/></div>
+<img class="stiker fade-in" id="stikerakhir" src="https://feeldreams.github.io/g5.gif"/>
+<img id="stikerakhir2" src="https://feeldreams.github.io/emawh.gif" style="display:none"/>
+<h1 id="judulakhir"></h1>
+<p id="kalimatakhir"></p>
+<p id="palingakhir"></p>
+<div id="TombolWA">
+<a onclick="menuju()">Bales</a>
+</div>
+</section>
+
+<div class="menu" id="initom">
+<a class="tombol" onclick="tes()">
+<svg class="bi bi-arrow-down" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"> 
+<path d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" fill-rule="evenodd"></path> 
+</svg>
+</a>
+</div>
+
+<script>
+function fungsimau(){
+       fungsi=0;tes();
+       teksjudulakhir = "Asiiiik! ";
+       tekskalimatakhir = "Matur nuwun wis gelem nampa<br>aku dadi pacarmu, hehe ";
+}
+function fungsigamau(){
+       fungsi=0;tes();
+       teksjudulakhir = "Halahhh ";
+       tekskalimatakhir = "Yo wis nek kowe ora gelem,<br>aku wae sing dadi<br>pacarmu, hehe ";
+}
+
+teksjudulakhir2 = "Aku Tresna Karo Kowe";
+tekspalingakhir = "Ojo lali bales pesen<br>nang WhatsApp ku yo! ";
+  
+pesanwhatsapp = "Aku gelem kok dadi pacarmu";
+
+const body = document.querySelector("body"); 
+initom.style="opacity:0;bottom:0;transition:none"; 
+audio = new Audio('' + linkmp3.src); 
+function berjatuhan() {
+   const heart = document.createElement("div"); 
+   heart.className = "fas fa-heart"; 
+   heart.style.left = (Math.random() * 90)+"vw"; 
+   heart.style.animationDuration = (Math.random()*3)+2+"s"; 
+   body.appendChild(heart);
+} 
+setInterval(function name(params) {
+   var heartArr = document.querySelectorAll(".fa-heart"); 
+   if (heartArr.length > 100) {heartArr[0].remove()}
+},100);
+</script>
+
+<script src="https://feeldreams.github.io/maukahkamu/main.js"></script>
+
+<!-- Override -->
+<script>
+// WhatsApp langsung ke nomor kamu
+function menuju(){
+  window.location.href = "https://wa.me/6281393403388?text=" + encodeURIComponent(pesanwhatsapp);
+}
+</script>
+
+<!-- Tambah credit baru -->
+<footer class="custom-credit">© A B N</footer>
+
 </body>
 </html>
