@@ -1,145 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5" name="viewport"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<link href="https://feeldreams.github.io/main-icon.png" rel="icon" type="image/svg+xml"/>
-<link href="https://feeldreams.github.io/main-icon.png" rel="apple-touch-icon"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Caveat&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
-<script crossorigin="anonymous" src="https://kit.fontawesome.com/4f3ce16e3e.js"></script>
-<script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
-<link href="https://feeldreams.github.io/maukahkamu/style.css" rel="stylesheet" type="text/css"/>
-<script src="https://unpkg.com/scrollreveal"></script>
-<title>Script HTML buat Kamu</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>😝</title>
+  <style>
+    :root{
+      --bg:#0b0b12;
+      --pink:#ff2fb9;
+      --pink2:#ff6fd8;
+      --pink3:#ff99e3;
+      --white:#fff7fb;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0;}
+    body{
+      background: radial-gradient(1200px 800px at center, #101020 0%, var(--bg) 60%, #05050a 100%);
+      overflow:hidden;
+      font-family: system-ui, sans-serif;
+    }
 
-<!-- Tambahan CSS biar © rayys hilang dan diganti © A B N -->
-<style>
-/* Hilangkan semua pseudo-element bawaan */
-body::after, body::before,
-footer::after, footer::before {
-  content: "" !important;
-  display: none !important;
-  visibility: hidden !important;
-}
+    .wrap{
+      position:relative;
+      z-index:2;
+      display:grid;
+      place-items:center;
+      height:100%;
+      text-align:center;
+    }
 
-/* Tambahkan credit baru */
-footer.custom-credit {
-  text-align: center;
-  font-size: 12px;
-  color: #555;
-  margin-top: 20px;
-}
-</style>
+    h1.neon{
+      margin:0;
+      font-size: clamp(44px, 8vw, 100px);
+      font-weight:800;
+      letter-spacing: .08em;
+      color: var(--white);
+      text-transform: uppercase;
+      text-shadow:
+        0 0 0.06em var(--white),
+        0 0 0.12em var(--pink),
+        0 0 0.22em var(--pink),
+        0 0 0.5em var(--pink2),
+        0 0 1.2em var(--pink2),
+        0 0 2.2em var(--pink3),
+        0 0 3.2em var(--pink3);
+      animation: flicker 3.5s infinite steps(60), blink 1.2s infinite;
+      position:relative;
+    }
+
+    @keyframes flicker{
+      0%, 1%, 2%, 3% { opacity: .97; }
+      4%{ opacity:.6 }
+      5%{ opacity:1 }
+      6%{ opacity:.85 }
+      7%{ opacity:1 }
+      8%{ opacity:.9 }
+      9%, 100%{ opacity:1 }
+    }
+    @keyframes blink{
+      0%{ filter: drop-shadow(0 0 8px var(--pink2)); }
+      50%{ filter: drop-shadow(0 0 18px var(--pink3)); }
+      100%{ filter: drop-shadow(0 0 8px var(--pink2)); }
+    }
+
+    canvas#fx{
+      position:fixed; inset:0; z-index:1; display:block; width:100vw; height:100vh; background:transparent;
+    }
+  </style>
 </head>
-
 <body>
-<div class="overlay">
-<div class="loading-message">Heh kowe!<br/>Enteni sek yo..</div>
-</div>
-<audio class="sembunyi" id="linkmp3" src="https://feeldreams.github.io/maukahkamu/seandainya.mp3"></audio>
+  <canvas id="fx"></canvas>
+  <div class="wrap">
+    <h1 class="neon" id="title">CINDYIMUT</h1>
+  </div>
 
-<section class="first">
-<div class="wp"><img id="imgsatu" src="https://feeldreams.github.io/maukahkamu/wpsatu.jpg"/></div>
-<img class="stiker fade-in" id="first_stiker" src="https://feeldreams.github.io/bunga.gif"/>
-<h1 class="title">Heh Kowe!</h1>
-<p class="flip">Iso ora nek aku jujur saiki?</p>
-<p class="slide-up"><i></i></p>
-</section>
+  <script>
+    const canvas = document.getElementById('fx');
+    const ctx = canvas.getContext('2d');
 
-<section>
-<div class="wp"><img id="imgdua" src="https://feeldreams.github.io/maukahkamu/wpdua.jpg"/></div>
-<img class="stiker fade-in" src="https://feeldreams.github.io/pusn.gif"/>
-<h2 class="title"><i>Sakjane..</i></h2>
-<p class="slide-right">Aku seneng karo <b class="lingkar">kowe</b> :(</p>
-</section>
+    function resize(){
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = innerWidth * dpr;
+      canvas.height = innerHeight * dpr;
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    resize();
+    window.addEventListener('resize',resize);
 
-<section>
-<div class="wp"><img id="imgtiga" src="https://feeldreams.github.io/maukahkamu/wptiga.jpg"/></div>
-<p id="teksnimasi">Yen kowe takon kenopo aku seneng karo kowe, iku mergo aku nduwe rasa nyaman dewe sing ora bakal tak temokake nang endi wae.<br/><br/><b><i>Kowe ngerti?</i></b><br/>Ora ana sing iso nggawe aku nyaman selaen kowe..<br/><br/>Lan mergo kenal karo kowe, aku ngrasakke opo iku kenyamanan,</p>
-</section>
+    function drawHeart(x, y, size, glow){
+      ctx.save();
+      ctx.translate(x,y);
+      ctx.scale(size,size);
+      ctx.beginPath();
+      for(let t=0; t<=Math.PI; t+=Math.PI/32){
+        const sx = 16 * Math.pow(Math.sin(t),3);
+        const sy = 13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t);
+        const px = sx / 18;
+        const py = -(sy / 18);
+        if(t===0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
+      }
+      ctx.closePath();
+      ctx.fillStyle = "pink";
+      ctx.shadowColor = glow;
+      ctx.shadowBlur = 30;
+      ctx.fill();
+      ctx.restore();
+    }
 
-<section>
-<div class="wp"><img id="imgempat" src="https://feeldreams.github.io/maukahkamu/wpempat.jpg"/></div>
-<img class="stiker fade-in" src="https://feeldreams.github.io/bunga.gif"/>
-<h2 class="title"><i>Intine,</i></h2>
-<p class="slide-right"><b>Kowe gelem ora<br/>Dadi pacarku? </b></p>
-<div id="Tombol">
-<a id="By" onclick="fungsimau()">Gelem</a>
-<a id="Bn" onclick="fungsigamau()">Ora gelem</a>
-</div>
-</section>
+    // Partikel outline hati
+    const particles = [];
+    const N = 250; // titik lebih rapat
+    let scaleBase = 13; // ukuran dasar hati
+    const cx = innerWidth/2, cy = innerHeight/2+5;
 
-<section id="iniakhir">
-<div class="wp" id="wpakhir"><img src="https://feeldreams.github.io/maukahkamu/wplima.jpg"/></div>
-<img class="stiker fade-in" id="stikerakhir" src="https://feeldreams.github.io/g5.gif"/>
-<img id="stikerakhir2" src="https://feeldreams.github.io/emawh.gif" style="display:none"/>
-<h1 id="judulakhir"></h1>
-<p id="kalimatakhir"></p>
-<p id="palingakhir"></p>
-<div id="TombolWA">
-<a onclick="menuju()">Bales</a>
-</div>
-</section>
+    for(let i=0;i<N;i++){
+      const t = (Math.PI*2) * (i/N);
+      const x = 16 * Math.pow(Math.sin(t),3);
+      const y = 13 * Math.cos(t) - 5*Math.cos(2*t) - 2*Math.cos(3*t) - Math.cos(4*t);
+      particles.push({x, y, offset: Math.random()*6.28});
+    }
 
-<div class="menu" id="initom">
-<a class="tombol" onclick="tes()">
-<svg class="bi bi-arrow-down" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"> 
-<path d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" fill-rule="evenodd"></path> 
-</svg>
-</a>
-</div>
+    // Partikel kecil yang melayang (sparkle)
+    const sparkles = [];
+    function addSparkle(){
+      sparkles.push({
+        x: cx,
+        y: cy,
+        size: Math.random()*1.5+0.5,
+        vx: (Math.random()-0.5)*1.5,
+        vy: -Math.random()*2-1,
+        life: 100
+      });
+    }
 
-<script>
-function fungsimau(){
-       fungsi=0;tes();
-       teksjudulakhir = "Asiiiik! ";
-       tekskalimatakhir = "Matur nuwun wis gelem nampa<br>aku dadi pacarmu, hehe ";
-}
-function fungsigamau(){
-       fungsi=0;tes();
-       teksjudulakhir = "Halahhh ";
-       tekskalimatakhir = "Yo wis nek kowe ora gelem,<br>aku wae sing dadi<br>pacarmu, hehe ";
-}
+    function tick(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
 
-teksjudulakhir2 = "Aku Tresna Karo Kowe";
-tekspalingakhir = "Ojo lali bales pesen<br>nang WhatsApp ku yo! ";
-  
-pesanwhatsapp = "Aku gelem kok dadi pacarmu";
+      // efek detak jantung
+      const beat = 1 + Math.sin(Date.now()/600)*0.1;
+      const scale = scaleBase * beat;
 
-const body = document.querySelector("body"); 
-initom.style="opacity:0;bottom:0;transition:none"; 
-audio = new Audio('' + linkmp3.src); 
-function berjatuhan() {
-   const heart = document.createElement("div"); 
-   heart.className = "fas fa-heart"; 
-   heart.style.left = (Math.random() * 90)+"vw"; 
-   heart.style.animationDuration = (Math.random()*3)+2+"s"; 
-   body.appendChild(heart);
-} 
-setInterval(function name(params) {
-   var heartArr = document.querySelectorAll(".fa-heart"); 
-   if (heartArr.length > 100) {heartArr[0].remove()}
-},100);
-</script>
+      particles.forEach(p=>{
+        const px = cx + p.x*scale;
+        const py = cy - p.y*scale;
+        const pulse = Math.sin(Date.now()/500 + p.offset)*1.5;
+        drawHeart(px, py+pulse, 1.3, "deeppink");
+      });
 
-<script src="https://feeldreams.github.io/maukahkamu/main.js"></script>
+      // update sparkles
+      if(Math.random()<0.1) addSparkle();
+      for(let i=sparkles.length-1;i>=0;i--){
+        const s = sparkles[i];
+        s.x += s.vx;
+        s.y += s.vy;
+        s.life--;
+        ctx.globalAlpha = s.life/100;
+        drawHeart(s.x, s.y, s.size, "hotpink");
+        ctx.globalAlpha = 1;
+        if(s.life<=0) sparkles.splice(i,1);
+      }
 
-<!-- Override -->
-<script>
-// WhatsApp langsung ke nomor kamu
-function menuju(){
-  window.location.href = "https://wa.me/6281393403388?text=" + encodeURIComponent(pesanwhatsapp);
-}
-</script>
-
-<!-- Tambah credit baru -->
-<footer class="custom-credit">© A B N</footer>
-
+      requestAnimationFrame(tick);
+    }
+    tick();
+  </script>
 </body>
 </html>
