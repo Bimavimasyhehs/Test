@@ -105,85 +105,8 @@
   <div class="stage">
     <div class="wrap">
       <h1 class="extrude" data-text="YANG BACA MONYET 😝">YANG BACA MONYET <span class="emoji">😝</span></h1>
-      <p class="note">SANTAI DONG</p>
+      <p class="note"></p>
     </div>
   </div>
 </body>
 </html>
-    /* Extrusion created with many text-shadows (fast and CSS-only) */
-    h1.extrude::before{
-      content:attr(data-text);
-      position:absolute;
-      left:0; top:0;
-      z-index:-1;
-      color:var(--accent2);
-      transform:translateZ(-34px) rotateX(12deg);
-      /* long list of shadows to simulate depth */
-      text-shadow:
-        1px 0 0 var(--shadow-color),
-        2px 0 0 rgba(0,0,0,0.55),
-        3px 0 0 rgba(0,0,0,0.54),
-        4px 0 0 rgba(0,0,0,0.53),
-        5px 0 0 rgba(0,0,0,0.52),
-        6px 0 0 rgba(0,0,0,0.51),
-        7px 0 0 rgba(0,0,0,0.50),
-        8px 0 0 rgba(0,0,0,0.49),
-        9px 0 0 rgba(0,0,0,0.48),
-        10px 0 0 rgba(0,0,0,0.47),
-        11px 0 0 rgba(0,0,0,0.46),
-        12px 0 0 rgba(0,0,0,0.45),
-        13px 0 0 rgba(0,0,0,0.44),
-        14px 0 0 rgba(0,0,0,0.43),
-        15px 0 0 rgba(0,0,0,0.42),
-        16px 0 0 rgba(0,0,0,0.41),
-        17px 0 0 rgba(0,0,0,0.40),
-        18px 0 0 rgba(0,0,0,0.39),
-        19px 0 0 rgba(0,0,0,0.38),
-        20px 0 0 rgba(0,0,0,0.36),
-        21px 0 0 rgba(0,0,0,0.34),
-        22px 0 0 rgba(0,0,0,0.32),
-        23px 0 0 rgba(0,0,0,0.30),
-        24px 0 0 rgba(0,0,0,0.28),
-        25px 0 0 rgba(0,0,0,0.26),
-        26px 0 0 rgba(0,0,0,0.24),
-        27px 0 0 rgba(0,0,0,0.22),
-        28px 0 0 rgba(0,0,0,0.20),
-        29px 0 0 rgba(0,0,0,0.18),
-        30px 0 0 rgba(0,0,0,0.16);
-      filter:blur(.2px);
-      opacity:0.95;
-    }
-
-    /* subtle tilt and hover animation */
-    .wrap{
-      display:inline-block;
-      transform: rotateX(8deg) rotateY(-14deg) translateZ(0);
-      transition:transform 600ms cubic-bezier(.2,.8,.2,1), filter 600ms;
-      will-change:transform;
-      cursor:default;
-    }
-    .wrap:hover{ transform: rotateX(6deg) rotateY(-6deg) translateZ(10px) scale(1.02); filter:brightness(1.04); }
-
-    /* small subtitle */
-    p.note{margin-top:18px; opacity:0.7; font-weight:600}
-
-    /* make emoji pop */
-    .emoji{display:inline-block; transform:translateY(6px) rotate(-12deg) scale(1.02); font-size:0.9em}
-
-    /* responsive tweaks */
-    @media (max-width:480px){
-      h1.extrude{letter-spacing:0}
-      .wrap{transform: rotateX(6deg) rotateY(-8deg)}
-    }
-  </style>
-</head>
-<body>
-  <div class="stage">
-    <div class="wrap">
-      <h1 class="extrude" data-text="YANG BACA MONYET 😝">YANG BACA MONYET <span class="emoji">😝</span></h1>
-      <p class="note">Tip: arahkan kursor (hover) untuk efek 3D.</p>
-    </div>
-  </div>
-</body>
-</html>
-
