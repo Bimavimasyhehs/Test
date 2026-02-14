@@ -1,112 +1,193 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>3D Text — YANG BACA MONYET 😝</title>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg-deep:#0b1220;
-      --bg-mid:#0f172a;
-      --primary:#ffcc00;
-      --accent:#ff5c8a;
-      --shadow: rgba(0,0,0,0.55);
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      display:grid;
-      place-items:center;
-      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
-      -webkit-font-smoothing:antialiased;
-      background: radial-gradient(1000px 600px at 10% 10%, rgba(255,92,138,0.06), transparent),
-                  radial-gradient(900px 500px at 90% 90%, rgba(255,204,0,0.04), transparent),
-                  linear-gradient(180deg,var(--bg-mid),var(--bg-deep));
-      color:#fff;
-      overflow:hidden;
-    }
-
-    .stage{
-      perspective:1200px;
-      text-align:center;
-      padding:40px;
-    }
-
-    .wrap{
-      display:inline-block;
-      transform-style: preserve-3d;
-      animation: float 5s ease-in-out infinite;
-      cursor:default;
-    }
-
-    @keyframes float{
-      0%,100%{ transform: rotateX(8deg) rotateY(-14deg) translateY(0); }
-      50%{ transform: rotateX(6deg) rotateY(-8deg) translateY(-15px); }
-    }
-
-    h1.extrude{
-      margin:0;
-      font-size:clamp(36px, 9vw, 110px);
-      line-height:0.9;
-      letter-spacing:0.03em;
-      position:relative;
-      transform-style:preserve-3d;
-      display:inline-block;
-      color:var(--primary);
-      font-weight:900;
-      text-shadow: 0 6px 30px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.04);
-      animation: glow 3s ease-in-out infinite;
-    }
-
-    @keyframes glow{
-      0%,100%{ text-shadow: 0 6px 30px rgba(0,0,0,0.6), 0 0 10px var(--primary); }
-      50%{ text-shadow: 0 6px 30px rgba(0,0,0,0.6), 0 0 25px var(--accent); }
-    }
-
-    h1.extrude::before{
-      content:attr(data-text);
-      position:absolute; left:0; top:0;
-      z-index:-1;
-      color:var(--accent);
-      transform:translateZ(-34px) rotateX(12deg);
-      text-shadow:
-        1px 0 0 var(--shadow), 2px 0 0 var(--shadow), 3px 0 0 var(--shadow),
-        5px 0 0 rgba(0,0,0,0.5), 8px 0 0 rgba(0,0,0,0.45), 12px 0 0 rgba(0,0,0,0.38),
-        18px 0 0 rgba(0,0,0,0.30), 24px 0 0 rgba(0,0,0,0.22), 30px 0 0 rgba(0,0,0,0.14);
-      filter:blur(.2px);
-      opacity:.95;
-    }
-
-    p.note{ margin-top:18px; opacity:0.75; font-weight:600; font-size:0.95rem; animation: fadeIn 2s ease-in-out forwards; }
-
-    @keyframes fadeIn{
-      from{ opacity:0; transform:translateY(20px); }
-      to{ opacity:.75; transform:translateY(0); }
-    }
-
-    .emoji{ display:inline-block; transform:translateY(6px) rotate(-12deg) scale(1.02); font-size:0.9em; animation: wiggle 2s ease-in-out infinite; }
-
-    @keyframes wiggle{
-      0%,100%{ transform:translateY(6px) rotate(-12deg) scale(1.02); }
-      50%{ transform:translateY(3px) rotate(-2deg) scale(1.1); }
-    }
-
-    @media (max-width:480px){
-      h1.extrude{ letter-spacing:0 }
-      p.note{ font-size:0.86rem }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💕</title>
+    <meta name="description" content="A sweet Valentine's Day message for someone special">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="stage">
-    <div class="wrap">
-      <h1 class="extrude" data-text="YANG BACA MONYET 😝">YANG BACA MONYET <span class="emoji">😝</span></h1>
-      <p class="note"></p>
+    <div class="bg-gradient"></div>
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
     </div>
-  </div>
+
+    <canvas id="heartCanvas"></canvas>
+
+    <div class="sparkle-container" id="sparkleContainer"></div>
+
+    <main id="app">
+
+        <section id="page1" class="page active">
+            <div class="page-content">
+                <div class="floating-hearts">
+                    <span class="float-heart">💕</span>
+                    <span class="float-heart">💗</span>
+                    <span class="float-heart">💖</span>
+                </div>
+                <div class="glass-card main-card">
+                    <div class="card-glow"></div>
+                    <h1 class="title-main" id="mainQuestion">Will you be my Valentine?</h1>
+                    <p class="subtitle" id="subQuestion">Please say yes </p>
+                    <div class="button-group">
+                        <button id="yesBtn" class="btn btn-yes">
+                            <span class="btn-text">YES</span>
+                            <span class="btn-shine"></span>
+                        </button>
+                        <button id="noBtn" class="btn btn-no">
+                            <span class="btn-text">NO</span>
+                        </button>
+                    </div>
+                    <p id="noEscapeText" class="escape-text hidden"></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="page2" class="page">
+            <div class="page-content">
+                <div class="celebration-burst" id="celebrationBurst"></div>
+                <div class="glass-card">
+                    <div class="card-glow"></div>
+                    <div class="emoji-bounce">🎉</div>
+                    <h1 class="title-cursive" id="confirmTitle">YAAAY! Kamu beneran mau 💗</h1>
+                    <div class="confirmation-box">
+                        <p id="confirmText">Mulai dari sekarang kamu resmi jadi…</p>
+                        <div class="badge-container">
+                            <div class="badge">
+                                <span class="badge-text">My Valentine</span>
+                                <div class="badge-sparkle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button id="nextToPage3" class="btn btn-primary">
+                            <span class="btn-text">Lanjut </span>
+                            <span class="btn-shine"></span>
+                        </button>
+                        <button id="backToPage1" class="btn btn-ghost btn-small">Ulangi pertanyaan</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page3" class="page">
+            <div class="page-content flower-page">
+                <div class="falling-petals" id="petalsContainer"></div>
+                <div class="glass-card">
+                    <div class="card-glow"></div>
+                    <h1 class="title-cursive" id="flowerTitle">Ini kado spesial buat kamu </h1>
+                    <div class="bouquet-wrapper">
+                        <div class="bouquet-glow"></div>
+                        <div class="bouquet" id="bouquet">
+                            <img src="buket.png" alt="Buket Bunga" class="bouquet-img">
+                        </div>
+                    </div>
+                    <p id="bouquetMessage" class="bouquet-message hidden">Yeay! Udah jadi milik kamu 💕</p>
+                    <div class="button-group">
+                        <button id="takeBouquet" class="btn btn-primary">
+                            <span class="btn-text">Terima hadiahnya </span>
+                            <span class="btn-shine"></span>
+                        </button>
+                        <button id="nextToPage4" class="btn btn-primary hidden">
+                            <span class="btn-text">Next </span>
+                            <span class="btn-shine"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page4" class="page">
+            <div class="page-content">
+                <div class="glass-card collage-card">
+                    <div class="card-glow"></div>
+                    <h1 class="title-cursive" id="collageTitle">My Beautiful You</h1>
+                    <p class="collage-subtitle" id="collageSubtitle">Sejak kamu hadir, hal sederhana pun terasa
+                        istimewa. Happy Valentine, my favorite person. 💕</p>
+                    <div class="photo-grid">
+                        <div class="photo-item">
+                            <img src="anime1.jpg" class="photo-preview" alt="Foto 1">
+                        </div>
+                        <div class="photo-item">
+                            <img src="anime2.jpg" class="photo-preview" alt="Foto 2">
+                        </div>
+                        <div class="photo-item">
+                            <img src="anime3.jpg" class="photo-preview" alt="Foto 3">
+                        </div>
+                        <div class="photo-item">
+                            <img src="anime4.jpg" class="photo-preview" alt="Foto 4">
+                        </div>
+                    </div>
+                    <button id="nextToPage5" class="btn btn-primary">
+                        <span class="btn-text">Satu halaman lagi… </span>
+                        <span class="btn-shine"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="page5" class="page">
+            <div class="page-content">
+                <div id="confettiContainer" class="confetti-container"></div>
+
+                <div class="envelope-wrapper" id="envelopeWrapper">
+                    <div class="envelope-container">
+                        <div class="envelope" id="envelope">
+                            <div class="envelope-back"></div>
+                            <div class="letter" id="letter">
+                                <div class="letter-content">
+                                    <span class="letter-heart">💕</span>
+                                    <span class="letter-text">For You</span>
+                                </div>
+                            </div>
+                            <div class="envelope-front"></div>
+                            <div class="envelope-flap"></div>
+                        </div>
+                    </div>
+                    <p class="envelope-hint" id="envelopeHint">Tap untuk membuka</p>
+                </div>
+
+                <div class="glass-card final-card hidden" id="finalContent">
+                    <div class="card-glow"></div>
+                    <div class="final-emoji">💞</div>
+                    <h1 class="title-cursive title-final" id="finalTitle">Happy Valentine, My Love 💞</h1>
+                    <div class="message-box">
+                        <div class="message-decoration">✨</div>
+                        <p id="finalMessage">
+                            Makasih ya sudah hadir dan bikin hariku selalu terasa cukup. Kamu adalah alasan kenapa
+                            senyum itu mudah muncul. Semoga hari harimu selalu penuh kehangatan dan kebahagiaan. Aku
+                            selalu ada untukmu. Happy Valentine 💕
+                        </p>
+                        <div class="message-decoration right">✨</div>
+                    </div>
+                    <div class="button-group final-buttons">
+                        <button id="restartBtn" class="btn btn-ghost">
+                            <span class="btn-text">Restart </span>
+                        </button>
+                        <button id="copyBtn" class="btn btn-primary">
+                            <span class="btn-text">Copy Message </span>
+                            <span class="btn-shine"></span>
+                        </button>
+                    </div>
+                    <p id="copyNotif" class="copy-notif hidden">Pesan berhasil dicopy! </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
